@@ -1,6 +1,6 @@
 {
   "name": "geonorge-shared-partials",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "url": "https://github.com/kartverket/Geonorge.SharedPartials/issues"
   },
   "homepage": "https://github.com/kartverket/Geonorge.SharedPartials#readme",
-  "devDependencies": {
+  "dependencies": {
     "angular": "^1.6.9",
     "angular-ui-bootstrap": "^2.5.6",
     "bootstrap": "^3.3.5",

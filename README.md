@@ -4,7 +4,7 @@
 Contains frontend for header used on Geonorge.no, including menu and search.
 
 ## Prerequisites
-[npm](https://www.npmjs.com/get-npm), [gulp](https://gulpjs.com/)
+[npm](https://www.npmjs.com/get-npm)
 
 ## Install
 ```bash
