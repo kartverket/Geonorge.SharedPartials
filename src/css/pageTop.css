@@ -1,0 +1,261 @@
+﻿.page-top-container {
+    background-color: #f8f8f7;
+    padding: 10px 0;
+}
+
+.page-top {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+    .page-top .logo {
+        flex: 1;
+        min-width: 150px;
+    }
+
+    .page-top ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .page-top a {
+        color: #414042;
+        font-weight: 600;
+    }
+
+    .page-top .search {
+        order: 3;
+        width: 100%;
+    }
+
+    .page-top .logo a {
+        display: inline-block;
+    }
+
+    .page-top .logo img {
+        width: 150px;
+    }
+
+    .page-top .downloads {
+        display: none;
+        flex: none;
+    }
+
+    .page-top .search-input {
+        display: flex;
+        height: 3.5em;
+        padding-top: .75em;
+    }
+
+    .page-top .search-text {
+        background: white;
+        border: 1px solid #DFDCDA;
+        border-right: 0;
+        border-radius: 2px 0 0 2px;
+        font-size: 16px;
+        flex: 1;
+        padding: 0 .75em;
+    }
+
+    .page-top .search-button {
+        background: white;
+        border: 1px solid #DFDCDA;
+        border-left: 0;
+        border-radius: 0 2px 2px 0;
+        display: inline-block;
+        padding: 0 .75em;
+    }
+
+        .page-top .search-button img {
+            width: 1.5em;
+        }
+
+    .page-top .menu {
+        min-height: 2.5em;
+        padding-left: 1em;
+    }
+
+    .page-top .menu-trigger {
+        background-color: #414042;
+        border-radius: 2px;
+        color: white;
+        cursor: pointer;
+        display: block;
+        font-size: 1.071em;
+        height: 100%;
+        overflow: hidden;
+        padding: .5em 10px 0;
+        position: relative;
+        width: 3em;
+        text-indent: -20em;
+    }
+
+        .page-top .menu-trigger::before,
+        .page-top .menu-trigger::after,
+        .page-top .menu-trigger span::before {
+            border-top: 3px solid white;
+            content: "";
+            display: block;
+            position: absolute;
+            right: 20%;
+            top: 7px;
+            width: 60%;
+        }
+
+        .page-top .menu-trigger::after {
+            bottom: 7px;
+            margin-top: -1px;
+            top: auto;
+        }
+
+        .page-top .menu-trigger span::before {
+            margin-top: -1.5px;
+            top: 50%;
+        }
+
+    .page-top .menu-trigger-chk:focus ~ .menu .menu-trigger {
+        box-shadow: 0 0 0 2px #fe5000;
+    }
+
+        .page-top .menu-trigger-chk:focus ~ .menu .menu-trigger:hover {
+            box-shadow: none;
+        }
+
+    .page-top .menu-trigger-chk:checked ~ .menu-content {
+        display: block;
+    }
+
+    .page-top .menu-content {
+        background-color: #dfdcda;
+        display: none;
+        flex: none;
+        position: absolute;
+        top: 3.357em;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .page-top .menu-content__navigation {
+        font-size: 1.0715em;
+    }
+
+        .page-top .menu-content__navigation > ul {
+            overflow: hidden;
+            padding: 2em 0 1em;
+        }
+
+        .page-top .menu-content__navigation ul a {
+            display: block;
+        }
+
+        .page-top .menu-content__navigation > ul > li > a {
+            border-bottom: 1px solid #b6afa8;
+            font-weight: 700;
+            padding-bottom: .75em;
+        }
+
+        .page-top .menu-content__navigation > ul > li ul {
+            padding-top: .75em;
+        }
+
+        .page-top .menu-content__navigation > ul > li li {
+            margin-bottom: .5em;
+        }
+
+    .page-top .menu-content__utilities {
+        background-color: #d2cecb;
+        padding: 15px 0;
+        text-align: right;
+    }
+
+        .page-top .menu-content__utilities a {
+            padding: .25em 1em .25em 1.1em;
+        }
+
+            .page-top .menu-content__utilities a + a {
+                border-left: 1px solid #b6afa8;
+            }
+
+
+@media (min-width: 35em) {
+    .page-top {
+        flex-wrap: nowrap;
+    }
+
+        .page-top .logo {
+            flex: 0;
+            min-width: 200px;
+            padding-right: 2em;
+        }
+
+            .page-top .logo img {
+                width: 175px;
+            }
+
+        .page-top .search-input {
+            height: 100%;
+            padding-top: 0;
+        }
+
+        .page-top .search {
+            flex: 1;
+            order: 0;
+            padding: 0 1em;
+        }
+}
+
+
+@media (min-width: 40em) {
+    .page-top .downloads {
+        display: block;
+        padding: 0 1em;
+    }
+
+        .page-top .downloads svg {
+            width: 2em;
+        }
+}
+
+
+@media (min-width: 62em) {
+    .page-top .logo {
+        min-width: 248px
+    }
+
+        .page-top .logo img {
+            width: 233px;
+        }
+
+    .page-top .menu-trigger {
+        text-indent: 0;
+        width: 6.5em;
+    }
+
+        .page-top .menu-trigger::before,
+        .page-top .menu-trigger::after,
+        .page-top .menu-trigger span::before {
+            right: 7%;
+            width: 29%;
+        }
+}
+
+
+/*
+    TODO: Midlertidige klasser for å teste headerfunksjonalitet -dagfinn
+    Bare å fjerne
+*/
+.search-results {
+    position: absolute;
+    top: 3.357em;
+    width: 100%;
+    z-index: 99999;
+    background-color: #DFDCDA;   
+}
+.search-input {
+    position: relative;
+}
+.downloads a:after {
+    display: none;
+}
