@@ -1,4 +1,5 @@
-var gulpif = require('gulp-if');
+var gulpif = require('gulp-if'),
+nodeUrl = 'node_modules/geonorge-shared-partials/';
 
 module.exports = {
   bundle: {
@@ -14,21 +15,21 @@ module.exports = {
     },
     main: {
       scripts: [
-        gulpif(process.env.NODE_ENV === 'production', 'src/js/searchOptions/searchOption.prod.js',
-          gulpif(process.env.NODE_ENV === 'test', 'src/js/searchOptions/searchOption.test.js',
-            'src/js/searchOptions/searchOption.local.js')),
-        'src/js/app.js',
-        'src/js/menuTopController.js',
-        'src/js/searchTopController.js'
+        gulpif(process.env.NODE_ENV === 'production', nodeUrl + 'src/js/searchOptions/searchOption.prod.js',
+          gulpif(process.env.NODE_ENV === 'test', nodeUrl + 'src/js/searchOptions/searchOption.test.js',
+            nodeUrl + 'src/js/searchOptions/searchOption.local.js')),
+        nodeUrl + 'src/js/app.js',
+        nodeUrl + 'src/js/menuTopController.js',
+        nodeUrl + 'src/js/searchTopController.js'
       ],
-      styles: "src/css/**/*.css",
+      styles: nodeUrl + 'src/css/**/*.css',
       options: {
         rev: false
       }
     }
   },
   copy: [{
-    src: 'src/images/**/*.{png,svg}',
-    base: 'src/'
+    src: nodeUrl + 'src/images/**/*.{png,svg}',
+    base: nodeUrl + 'src/'
   }]
 };

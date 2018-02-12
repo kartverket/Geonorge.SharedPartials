@@ -8,6 +8,6 @@ module.exports = function (gulp) {
 			process.env.NODE_ENV = 'development'
 		return gulp.src(config.url)
 			.pipe(bundle())
-			.pipe(gulp.dest(config.dist));
+			.pipe(gulp.dest(config.distFolder));
 	}
 };

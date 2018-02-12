@@ -1,8 +1,8 @@
 {
   "name": "geonorge-shared-partials",
-  "version": "0.0.2",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.3",
+  "description": "Header for *.geonorge.no sites",
+  "main": "src/partials/Header.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/kartverket/Geonorge.SharedPartials.git"
   },
-  "author": "",
+  "author": "kartverket",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/kartverket/Geonorge.SharedPartials/issues"
