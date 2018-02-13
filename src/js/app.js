@@ -3,4 +3,3 @@
 };
 
 angular.module('geonorge-header', ['ui.bootstrap']);
-//angular.module('geonorge-header', ['ngAnimate']);

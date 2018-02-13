@@ -43,10 +43,34 @@
         flex: none;
     }
 
+    .page-top .downloads__count {
+        background-color: #FE5002;
+        border-radius: 50%;
+        color: white;
+        display: none;
+        font-size: .857em;
+        height: 1.5em;
+        line-height: 1.5;
+        margin-top: -.25em;
+        margin-left: -.5em;
+        position: absolute;
+        text-align: center;
+        width: 1.5em;
+    }
+
+        .page-top .downloads__count[style*="block"] ~ svg .downloads__cloud {
+            fill: #414042;
+        }
+
+    .page-top .downloads__cloud {
+
+    }
+
     .page-top .search-input {
         display: flex;
         height: 3.5em;
         padding-top: .75em;
+        position: relative;
     }
 
     .page-top .search-text {
@@ -78,7 +102,7 @@
     }
 
     .page-top .menu-trigger {
-        background-color: #414042;
+        background-color: #7d746d;
         border-radius: 2px;
         color: white;
         cursor: pointer;
@@ -102,6 +126,7 @@
             right: 20%;
             top: 7px;
             width: 60%;
+            transition: transform .25s, top .25s, bottom .25s;
         }
 
         .page-top .menu-trigger::after {
@@ -123,6 +148,24 @@
             box-shadow: none;
         }
 
+    .page-top .menu-trigger-chk:checked ~ .menu .menu-trigger {
+        background-color: #414042;
+    }
+
+    .page-top .menu-trigger-chk:checked ~ .menu .menu-trigger::before {
+        transform: rotate(45deg);
+        top: 1.125em;
+    }
+
+    .page-top .menu-trigger-chk:checked ~ .menu .menu-trigger::after {
+        bottom: 1.125em;
+        transform: rotate(135deg);
+    }
+
+    .page-top .menu-trigger-chk:checked ~ .menu .menu-trigger span::before {
+        content: none;
+    }
+
     .page-top .menu-trigger-chk:checked ~ .menu-content {
         display: block;
     }
@@ -131,6 +174,7 @@
         background-color: #dfdcda;
         display: none;
         flex: none;
+        left: 0;
         position: absolute;
         top: 3.357em;
         width: 100%;
@@ -143,8 +187,16 @@
 
         .page-top .menu-content__navigation > ul {
             overflow: hidden;
-            padding: 2em 0 1em;
+            padding: 2em 0 0;
         }
+
+            .page-top .menu-content__navigation > ul > li {
+                padding-bottom: 1.5em;
+            }
+
+                .page-top .menu-content__navigation > ul > li:nth-child(2n+1) {
+                    clear: left;
+                }
 
         .page-top .menu-content__navigation ul a {
             display: block;
@@ -239,23 +291,50 @@
             right: 7%;
             width: 29%;
         }
+
+    .page-top .menu-content__navigation > ul > li:nth-child(2n+1) {
+        clear: none;
+    }
 }
 
-
-/*
-    TODO: Midlertidige klasser for å teste headerfunksjonalitet -dagfinn
-    Bare å fjerne
-*/
-.search-results {
+.page-top .search-results {
+    background-color: #eae8e6;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .4);
+    border-radius: 0 0 5px 5px;
+    margin-top: 2.64288em;
+    overflow: hidden;
     position: absolute;
-    top: 3.357em;
-    width: 100%;
     z-index: 99999;
-    background-color: #DFDCDA;   
 }
-.search-input {
-    position: relative;
+
+.page-top .auto-result-row {
+    padding: 0;
 }
-.downloads a:after {
-    display: none;
+
+.page-top .auto-result-row:nth-child(2n) {
+    background-color: #ffffff;
 }
+
+.page-top .auto-results-title {
+    color: #414041;
+    font-size: 1.143em;
+    font-weight: 600;
+    line-height: 2;
+    margin-bottom: 5px;
+    margin-top: 17px;
+}
+
+.page-top .auto-results-col {
+    padding-bottom: 12px;
+}
+
+.page-top .auto-results-inner {
+    color: #3867c8;
+    font-size: 1.143em;
+    font-weight: 400;
+    line-height: 1.75;
+}
+
+    .page-top .auto-results-inner[data-ng-class="highlight"] {
+        text-decoration: underline;
+    }

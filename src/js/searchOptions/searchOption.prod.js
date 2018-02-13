@@ -8,5 +8,6 @@
     queryParameter: '?text=',
     localUrl: false,
     autoComplete: true,
-    hosts: "geonorge.no,kartkatalog.geonorge.no,register.geonorge.no,objektkatalog.geonorge.no,editor.geonorge.no,produktark.geonorge.no,validering.geonorge.no,159.162.102.155"
+    hosts: "geonorge.no,kartkatalog.geonorge.no,register.geonorge.no,objektkatalog.geonorge.no,editor.geonorge.no,produktark.geonorge.no,validering.geonorge.no,159.162.102.155",
+    shoppingCartUrl: 'https://kartkatalog.geonorge.no/nedlasting'
 }

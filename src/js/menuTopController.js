@@ -1,5 +1,4 @@
-﻿
-(function() {
+﻿(function() {
     var app = angular.module("geonorge-header");
 
     app.controller("menuTopController", [
@@ -19,7 +18,7 @@
             }
 
             $scope.getMenuData = function getMenuData() {
-                var menuService = GeonorgeOptions.baseUrl + "/api/menu" + "?omitLinks=1";
+                var menuService = baseurl + "/api/menu" + "?omitLinks=1";
                 var request = $http({
                     method: "GET",
                     url: menuService,
@@ -32,6 +31,26 @@
 
                 return request.then(handleSuccess, handleError);
             };
+
+            switch ($.cookie("_culture")) {
+            case "en":
+                $scope.cultureSwitchName = "Norsk";
+                $scope.cultureSwitchCode = "no";
+                if (cultureData)
+                    $scope.cultureSwitchUrl = cultureData.friendlyUrlNO;
+                break;
+            default:
+                $scope.cultureSwitchName = "English";
+                $scope.cultureSwitchCode = "en";
+                if (cultureData)
+                    $scope.cultureSwitchUrl = cultureData.friendlyUrlEN;
+                break;
+            }
+
+            $scope.switchCulture = function(cultureCode) {
+                $.cookie("_culture", cultureCode);
+                location.reload();
+            }
         }
     ]);
 }());
