@@ -18,7 +18,7 @@
             }
 
             $scope.getMenuData = function getMenuData() {
-                var menuService = baseurl + "/api/menu" + "?omitLinks=1";
+                var menuService = searchOption.epiBaseUrl + "/api/menu" + "?omitLinks=1";
                 var request = $http({
                     method: "GET",
                     url: menuService,
@@ -48,7 +48,7 @@
             }
 
             $scope.switchCulture = function(cultureCode) {
-                $.cookie("_culture", cultureCode);
+                document.cookie = "_culture=" + cultureCode + "; path=/";
                 location.reload();
             }
         }

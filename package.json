@@ -1,6 +1,6 @@
 {
   "name": "geonorge-shared-partials",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Header for *.geonorge.no sites",
   "main": "src/partials/Header.html",
   "scripts": {
