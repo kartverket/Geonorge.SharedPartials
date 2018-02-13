@@ -3,7 +3,7 @@
 
 <header class="page-top-container">
     <div class="container">
-        <div class="page-top" data-ng-app="geonorge-header">
+        <div class="page-top" data-ng-app="geonorge-header" ng-controller="baseController">
             <div class="logo">
                 <a href="/">
                     <img src="/dist/images/geonorge_logo_350px.svg" alt="geonorge logo" />
@@ -11,9 +11,9 @@
             </div>
 
             <div class="search">
-                <label for="txtSearch" class="sr-only">Search</label>
-                <div class="search-input" data-ng-controller="searchTopController">
-                    <input autocomplete="off" id="txtSearch" type="search" class="search-text" placeholder="Search" data-ng-focus="setFocus($event)" data-ng-blur="" data-ng-keyup="autocomplete($event)" data-ng-keydown="preventDefault($event)" data-ng-model="$root.searchQuery"/>
+                <label for="txtSearch" class="sr-only" ng-cloak>{{localizedText.search[langCode]}}</label>
+                <div class="search-input" data-ng-controller="searchTopController" ng-cloak>
+                    <input autocomplete="off" id="txtSearch" type="search" class="search-text" placeholder="{{localizedText.search[langCode]}}" data-ng-focus="setFocus($event)" data-ng-blur="" data-ng-keyup="autocomplete($event)" data-ng-keydown="preventDefault($event)" data-ng-model="$root.searchQuery"/>
                     <button class="search-button" type="button">
                         <img src="/dist/images/search_icon-01.svg" alt="search"/>
                     </button>
@@ -37,7 +37,7 @@
             <input type="checkbox" class="menu-trigger-chk sr-only" id="menuToggler" />
             <div class="menu">
                 <label for="menuToggler" class="menu-trigger" href="#topMenu">
-                    <span>Toggle</span>
+                    <span ng-cloak>{{localizedText.menu[langCode]}}</span>
                 </label>
             </div>
             <div class="menu-content">

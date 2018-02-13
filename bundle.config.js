@@ -19,6 +19,7 @@ module.exports = {
           gulpif(process.env.NODE_ENV === 'test', nodeUrl + 'src/js/searchOptions/searchOption.test.js',
             nodeUrl + 'src/js/searchOptions/searchOption.local.js')),
         nodeUrl + 'src/js/app.js',
+        nodeUrl + 'src/js/baseController.js',
         nodeUrl + 'src/js/menuTopController.js',
         nodeUrl + 'src/js/searchTopController.js'
       ],

@@ -335,6 +335,10 @@
     line-height: 1.75;
 }
 
-    .page-top .auto-results-inner[data-ng-class="highlight"] {
-        text-decoration: underline;
-    }
+.page-top .auto-results-inner[data-ng-class="highlight"] {
+    text-decoration: underline;
+}
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none !important;
+}

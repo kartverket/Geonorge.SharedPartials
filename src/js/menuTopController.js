@@ -31,26 +31,6 @@
 
                 return request.then(handleSuccess, handleError);
             };
-
-            switch ($.cookie("_culture")) {
-            case "en":
-                $scope.cultureSwitchName = "Norsk";
-                $scope.cultureSwitchCode = "no";
-                if (cultureData)
-                    $scope.cultureSwitchUrl = cultureData.friendlyUrlNO;
-                break;
-            default:
-                $scope.cultureSwitchName = "English";
-                $scope.cultureSwitchCode = "en";
-                if (cultureData)
-                    $scope.cultureSwitchUrl = cultureData.friendlyUrlEN;
-                break;
-            }
-
-            $scope.switchCulture = function(cultureCode) {
-                document.cookie = "_culture=" + cultureCode + "; path=/";
-                location.reload();
-            }
         }
     ]);
 }());
