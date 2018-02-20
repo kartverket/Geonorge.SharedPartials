@@ -18,7 +18,10 @@
             }
 
             $scope.getMenuData = function getMenuData() {
-                var menuService = searchOption.epiBaseUrl + "/api/menu" + "?omitLinks=1";
+				var domainUrl = "";
+				if (searchOption.epiBaseUrl !== undefined)
+					domainUrl = searchOption.epiBaseUrl;
+                var menuService = domainUrl + "/api/menu" + "?omitLinks=1";
                 var request = $http({
                     method: "GET",
                     url: menuService,
@@ -26,7 +29,8 @@
                         'Content-Type': "application/json; charset=utf-8",
                         'accept': "*/*"
                     },
-                    data: {}
+                    data: {},
+					crossDomain: true
                 });
 
                 return request.then(handleSuccess, handleError);

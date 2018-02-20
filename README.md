@@ -43,7 +43,7 @@ $ gulp prod
 Use the html files in your root layout
 ```cs
 // C# example
-@Html.Raw(File.ReadAllText(Server.MapPath("~/node_modules/geonorge-shared-partials/src/partials/Header.html")))
+@Html.Raw(File.ReadAllText(Server.MapPath("~/dist/partials/Header.html")))
 ```
 
 [npm-url]: https://npmjs.org/package/geonorge-shared-partials

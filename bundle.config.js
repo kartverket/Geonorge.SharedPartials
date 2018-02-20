@@ -15,7 +15,7 @@ module.exports = {
     },
     main: {
       scripts: [
-        gulpif(process.env.NODE_ENV === 'production', nodeUrl + 'src/js/searchOptions/searchOption.prod.js',
+        gulpif(process.env.NODE_ENV === 'prod', nodeUrl + 'src/js/searchOptions/searchOption.prod.js',
           gulpif(process.env.NODE_ENV === 'test', nodeUrl + 'src/js/searchOptions/searchOption.test.js',
             nodeUrl + 'src/js/searchOptions/searchOption.local.js')),
         nodeUrl + 'src/js/app.js',
@@ -30,7 +30,7 @@ module.exports = {
     }
   },
   copy: [{
-    src: nodeUrl + 'src/images/**/*.{png,svg}',
+    src: [nodeUrl + 'src/images/**/*.{png,svg}', nodeUrl + 'src/partials/*.html'],
     base: nodeUrl + 'src/'
   }]
 };

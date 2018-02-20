@@ -1,21 +1,57 @@
 {
-  "name": "geonorge-shared-partials",
-  "version": "0.0.6",
-  "description": "Header for *.geonorge.no sites",
-  "main": "src/partials/Header.html",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "_args": [
+    [
+      {
+        "raw": "geonorge-shared-partials@*",
+        "scope": null,
+        "escapedName": "geonorge-shared-partials",
+        "name": "geonorge-shared-partials",
+        "rawSpec": "*",
+        "spec": "*",
+        "type": "range"
+      },
+      "C:\\Repo\\geonorge\\src\\node_modules"
+    ]
+  ],
+  "_from": "geonorge-shared-partials@*",
+  "_id": "geonorge-shared-partials@0.0.6",
+  "_inCache": true,
+  "_location": "/geonorge-shared-partials",
+  "_nodeVersion": "6.11.4",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/geonorge-shared-partials_0.0.6_1518534496267_0.2337007985224595"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kartverket/Geonorge.SharedPartials.git"
+  "_npmUser": {
+    "name": "dsreitan",
+    "email": "dsreitan@gmail.com"
   },
-  "author": "kartverket",
-  "license": "ISC",
+  "_npmVersion": "3.10.10",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "geonorge-shared-partials@*",
+    "scope": null,
+    "escapedName": "geonorge-shared-partials",
+    "name": "geonorge-shared-partials",
+    "rawSpec": "*",
+    "spec": "*",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/geonorge-shared-partials/-/geonorge-shared-partials-0.0.6.tgz",
+  "_shasum": "f134fe1a644a2cc4c28e44e364174ad9aa914adc",
+  "_shrinkwrap": null,
+  "_spec": "geonorge-shared-partials@*",
+  "_where": "C:\\Repo\\geonorge\\src\\node_modules",
+  "author": {
+    "name": "kartverket"
+  },
   "bugs": {
     "url": "https://github.com/kartverket/Geonorge.SharedPartials/issues"
   },
-  "homepage": "https://github.com/kartverket/Geonorge.SharedPartials#readme",
   "dependencies": {
     "angular": "^1.6.9",
     "angular-ui-bootstrap": "^2.5.6",
@@ -24,5 +60,35 @@
     "gulp-bundle-assets": "^2.29.0",
     "gulp-if": "^2.0.2",
     "jquery": "^3.3.1"
-  }
+  },
+  "description": "Header for *.geonorge.no sites",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "f134fe1a644a2cc4c28e44e364174ad9aa914adc",
+    "tarball": "https://registry.npmjs.org/geonorge-shared-partials/-/geonorge-shared-partials-0.0.6.tgz",
+    "fileCount": 19,
+    "unpackedSize": 48771
+  },
+  "gitHead": "e52b7cc8e6c968ee74fe10b6dea48b859bf3f478",
+  "homepage": "https://github.com/kartverket/Geonorge.SharedPartials#readme",
+  "license": "ISC",
+  "main": "src/partials/Header.html",
+  "maintainers": [
+    {
+      "name": "dsreitan",
+      "email": "dsreitan@gmail.com"
+    }
+  ],
+  "name": "geonorge-shared-partials",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kartverket/Geonorge.SharedPartials.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.0.6"
 }
