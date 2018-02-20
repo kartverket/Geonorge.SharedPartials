@@ -34,7 +34,6 @@
     
                 $scope.switchCulture = function(cultureCode) {
                     document.cookie = "_culture=" + cultureCode + "; path=/;domain=.geonorge.no";
-                    console.log(document.cookie);
                     location.reload();
                 }
         }
