@@ -20,7 +20,7 @@ config = {
   dist: 'dist'
 };
 
-gulp.task("default", function(){return bundleTask(config)});
+gulp.task("default", function(){bundleTask(config)});
 gulp.task("test", function(){bundleTask(config,"test")});
 gulp.task("prod", function(){bundleTask(config,"prod")});
 ```
