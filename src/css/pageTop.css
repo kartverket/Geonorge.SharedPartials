@@ -1,5 +1,6 @@
 ﻿.page-top-container {
     background-color: #f8f8f7;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .3);
     padding: 10px 0;
 }
 
@@ -35,6 +36,7 @@
     }
 
     .page-top .logo img {
+        height: 24px;
         width: 150px;
     }
 
@@ -93,6 +95,7 @@
     }
 
         .page-top .search-button img {
+            height: 1.544em;
             width: 1.5em;
         }
 
@@ -243,6 +246,7 @@
         }
 
             .page-top .logo img {
+                height: 28px;
                 width: 175px;
             }
 
@@ -277,6 +281,7 @@
     }
 
         .page-top .logo img {
+            height: 37px;
             width: 233px;
         }
 
@@ -336,10 +341,6 @@
     line-height: 1.75;
 }
 
-.page-top .auto-results-inner[data-ng-class="highlight"] {
-    text-decoration: underline;
-}
-
-[ng\:cloak], [ng-cloak], .ng-cloak {
-    display: none !important;
-}
+    .page-top .auto-results-inner[data-ng-class="highlight"] {
+        text-decoration: underline;
+    }
