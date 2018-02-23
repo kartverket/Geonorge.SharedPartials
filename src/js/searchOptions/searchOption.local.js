@@ -9,6 +9,6 @@
     localUrl: false,
     autoComplete: true,
     hosts: "localhost,geonorge.epidemo.no,geonorge.local,kartkatalog.dev.geonorge.no",
-    shoppingCartUrl: 'https://kartkatalog.dev.geonorge.no/nedlasting',
-    epiBaseUrl: 'http://localhost:61381'
+    shoppingCartUrl: '//kartkatalog.dev.geonorge.no/nedlasting',
+    epiBaseUrl: 'localhost:61381'
 }

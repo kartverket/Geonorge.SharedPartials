@@ -46,5 +46,14 @@ Use the html files in your root layout
 @Html.Raw(File.ReadAllText(Server.MapPath("~/dist/partials/Header.html")))
 ```
 
+and include this js somewhere on your site to update the "shopping cart" icon
+```js
+var orderItems = $.cookie('orderitems');
+if (orderItems && orderItems > 0) {
+    $('.downloads__count').show();
+    $('.downloads__count').text(orderItems);
+}
+```
+
 [npm-url]: https://npmjs.org/package/geonorge-shared-partials
 [npm-image]: http://img.shields.io/npm/v/geonorge-shared-partials.svg
