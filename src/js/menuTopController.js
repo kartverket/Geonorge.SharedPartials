@@ -35,6 +35,10 @@
 
                 return request.then(handleSuccess, handleError);
             };
+
+            $scope.loginUrl = '//kartkatalog.geonorge.no/login';
+            if (searchOption.loginUrl !== undefined)
+                $scope.loginUrl = searchOption.loginUrl;            
         }
     ]);
 }());

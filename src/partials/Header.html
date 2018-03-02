@@ -6,7 +6,7 @@
         <div class="page-top" data-ng-app="geonorge-header" ng-controller="baseController">
             <div class="logo">
                 <a href="/">
-                    <img src="/dist/images/geonorge_logo_350px.svg" alt="geonorge logo" />
+                    <img ng-src="{{imageLogoPath}}" src="/dist/images/geonorge_logo_350px.svg" alt="geonorge logo" />
                 </a>
             </div>
 
@@ -36,8 +36,8 @@
 
             <input type="checkbox" class="menu-trigger-chk sr-only" id="menuToggler" />
             <div class="menu">
-                <label for="menuToggler" class="menu-trigger" href="#topMenu">
-                    <span ng-cloak>{{localizedText.menu[langCode]}}</span>
+                <label for="menuToggler" class="menu-trigger" href="#topMenu" ng-cloak>
+                    <span>{{localizedText.menu[langCode]}}</span>
                 </label>
             </div>
             <div class="menu-content">
@@ -47,17 +47,17 @@
                             <h2 class="sr-only">Hovedmeny</h2>
                             <ul data-ng-if="!getMenuError">
                                 <li class="col-sm-6 col-md-3" data-ng-repeat="item in menuItems">
-                                    <a data-ng-href="{{item.Url}}">{{item.Name}}</a>
+                                    <a data-ng-href="{{item.Url}}" target="_self">{{item.Name}}</a>
                                     <ul data-ng-if="item.HasChildren">
                                         <li data-ng-repeat="subItem in item.SubMenuItem">
-                                            <a data-ng-href="{{subItem.Url}}">{{subItem.Name}}</a>
+                                            <a data-ng-href="{{subItem.Url}}" target="_self">{{subItem.Name}}</a>
                                         </li>
                                     </ul>
                                 </li>
                             </ul>
                             <div class="menu-content__utilities">
-                                <!-- <a href="#">Logg inn</a> -->
-                                <a ng-href="{{cultureSwitchUrl}}" ng-click="switchCulture(cultureSwitchCode)">{{cultureSwitchName}}</a>
+                                <a ng-href="{{loginUrl}}">{{localizedText.login[langCode]}}</a>
+                                <a class="internal" ng-href="{{cultureSwitchUrl}}" ng-click="switchCulture(cultureSwitchCode)">{{cultureSwitchName}}</a>
                             </div>
                         </nav>
                     </div>

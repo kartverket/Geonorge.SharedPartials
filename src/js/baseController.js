@@ -14,6 +14,10 @@
                 menu: {
                     en: "Menu",
                     no: "Meny"
+                },
+                login: {
+                    en: "Login",
+                    no: "Logg inn"
                 }
             }
 
@@ -29,12 +33,15 @@
                     $scope.cultureSwitchCode = "en";
                     if (cultureData)
                         $scope.cultureSwitchUrl = cultureData.friendlyUrlEN;
-                    break;
-                }
-    
-                $scope.switchCulture = function(cultureCode) {
-                    document.cookie = "_culture=" + cultureCode + "; path=/;domain=.geonorge.no";
-                }
+            }
+
+            $scope.switchCulture = function(cultureCode) {
+                document.cookie = "_culture=" + cultureCode + "; path=/;domain=.geonorge.no";
+            }
+            
+            $scope.imageLogoPath = "";
+            if (searchOption.imageLogoPath !== undefined)
+                $scope.imageLogoPath = searchOption.imageLogoPath;
         }
     ]);
 }());
