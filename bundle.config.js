@@ -1,5 +1,5 @@
-var gulpif = require('gulp-if'),
-nodeUrl = 'node_modules/geonorge-shared-partials/';
+var nodeUrl = 'node_modules/geonorge-shared-partials/';
+//nodeUrl = "./"; // uncomment for local build
 
 module.exports = {
   bundle: {
@@ -15,9 +15,7 @@ module.exports = {
     },
     main: {
       scripts: [
-        gulpif(process.env.NODE_ENV === 'prod', nodeUrl + 'src/js/searchOptions/searchOption.prod.js',
-          gulpif(process.env.NODE_ENV === 'test', nodeUrl + 'src/js/searchOptions/searchOption.test.js',
-            nodeUrl + 'src/js/searchOptions/searchOption.local.js')),
+        nodeUrl + 'src/js/searchOptions.js',
         nodeUrl + 'src/js/app.js',
         nodeUrl + 'src/js/baseController.js',
         nodeUrl + 'src/js/menuTopController.js',

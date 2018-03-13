@@ -3,9 +3,9 @@
 
     app.controller("baseController", [
         "$scope", "$http",
-        function($scope, $http) {            
+        function($scope, $http) {       
+            // * Language *     
             $scope.langCode = $.cookie("_culture");
-
             $scope.localizedText = {
                 search: {
                     en: "Search",
@@ -18,9 +18,12 @@
                 login: {
                     en: "Login",
                     no: "Logg inn"
+                },
+                logout: {
+                    en: "Log out",
+                    no: "Logg ut"
                 }
-            }
-
+            }            
             switch ($scope.langCode) {
                 case "en":
                     $scope.cultureSwitchName = "Norsk";
@@ -34,14 +37,17 @@
                     if (cultureData)
                         $scope.cultureSwitchUrl = cultureData.friendlyUrlEN;
             }
-
             $scope.switchCulture = function(cultureCode) {
                 document.cookie = "_culture=" + cultureCode + "; path=/;domain=.geonorge.no";
             }
             
+            // * Logo *
             $scope.imageLogoPath = "";
             if (searchOption.imageLogoPath !== undefined)
                 $scope.imageLogoPath = searchOption.imageLogoPath;
+
+            // * Login *
+            $scope.loggedIn = $.cookie("_loggedIn");
         }
     ]);
 }());
