@@ -6,6 +6,8 @@ module.exports = {
     vendor: {
       scripts: [
         'node_modules/angular/angular.js',
+        'node_modules/jquery/dist/jquery.min.js',
+        'node_modules/jquery.cookie/jquery.cookie.js',
         'node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js'
       ],
       styles: "node_modules/bootstrap/dist/css/bootstrap.css",
