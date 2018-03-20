@@ -59,7 +59,8 @@
     "gulp": "^3.9.1",
     "gulp-bundle-assets": "^2.29.0",
     "gulp-if": "^2.0.2",
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "jquery.cookie": "^1.4.1"
   },
   "description": "Header for *.geonorge.no sites",
   "devDependencies": {},
