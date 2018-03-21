@@ -104,7 +104,7 @@
           $rootScope.searchQuery = '';
           $scope.autoCompleteResult = [];
           
-          $scope.autoCompletePartial = searchOption.epiBaseUrl + '/KartverketSharedMenu/Scripts/geonorge/partials/_autoCompleteRow.html';
+          $scope.autoCompletePartial = '/dist/partials/_autoCompleteRow.html';
           $scope.focused = false;
           $scope.autocompleteActive = false;
           $scope.ajaxCallActive = false;
