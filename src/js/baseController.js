@@ -48,6 +48,8 @@
 
             // * Login *
             $scope.loggedIn = Cookies.get("_loggedIn");
+            if (searchOption.loggedIn !== undefined)
+                $scope.loggedIn = searchOption.loggedIn;
         }
     ]);
 }());
