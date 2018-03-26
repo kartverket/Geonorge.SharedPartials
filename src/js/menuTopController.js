@@ -18,13 +18,10 @@
             }
 
             $scope.getMenuData = function getMenuData() {
-                var language = '';
-                if (cultureData !== undefined && cultureData.currentCulture !== undefined && cultureData.currentCulture == "en")
-                    language = '/en';
                 var domainUrl = "";
                 if (searchOption.epiBaseUrl !== undefined)
                     domainUrl = searchOption.epiBaseUrl;
-                var menuService = domainUrl + language + "/api/menu" + "?omitLinks=1";
+                var menuService = domainUrl + "/api/menu" + "?omitLinks=1";
                 var request = $http({
                     method: "GET",
                     url: menuService,
