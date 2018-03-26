@@ -26,6 +26,23 @@ var searchOptions = {
         epiBaseUrl: geonorgeBaseUrl.local,
         imageLogoPath: "/dist/images/geonorge_logo_350px_dev.svg"
     },
+    dev: {
+        text: "Kartkatalogen",
+        searchTitle: "Kartkatalogen",
+        buttonCss: "edgesKartkatalogen",
+        listCss: "left-edge-kartkatalogen",    
+        queryParameter: "?text=",
+        localUrl: false,
+        autoComplete: true,
+        url: kartKatalogenUrl.local + "/search",
+        api: kartKatalogenUrl.local + "/api/search",
+        shoppingCartUrl: kartKatalogenUrl.local + "/nedlasting",
+        loginUrl: kartKatalogenUrl.local + "/AuthServices/SignIn?ReturnUrl=http%3A%2F%2F"+geonorgeBaseUrl.local+"%2F",
+        logoutUrl: kartKatalogenUrl.local + "/AuthServices/SignOut?ReturnUrl=http%3A%2F%2F"+geonorgeBaseUrl.local+"%2F",
+        hosts: "localhost,geonorge.epidemo.no,geonorge.local,kartkatalog.dev.geonorge.no",
+        epiBaseUrl: geonorgeBaseUrl.local,
+        imageLogoPath: "/dist/images/geonorge_logo_350px_dev.svg"
+    },
     test: {
         text: "Kartkatalogen",
         searchTitle: "Kartkatalogen",
