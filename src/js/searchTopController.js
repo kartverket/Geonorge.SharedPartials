@@ -114,6 +114,20 @@
           $rootScope.selectedSearch = searchOption;
           $rootScope.searchQuery = parseLocation(window.location.search).text;
           $rootScope.activePageUrl = "//" + window.location.host + window.location.pathname + window.location.search; 
+
+          // Values based on selected language
+          if (cultureData.currentCulture === undefined || cultureData.currentCulture === '' || cultureData.currentCulture == 'no') {
+            $rootScope.showAllText = "Vis alle treff...";
+            $rootScope.noResultsText = "Søket gir ingen treff";
+            $rootScope.loadingContentText = "Henter innhold";
+            $rootScope.loadingSearchResultsText = "Henter søkeresultater";
+          } else if (cultureData.currentCulture == 'en') {
+            $rootScope.showAllText = "Show all results...";
+            $rootScope.noResultsText = "Your search did not return any data";
+            $rootScope.loadingContentText = "Loading content";
+            $rootScope.loadingSearchResultsText = "Loading search results";
+          }
+
           $scope.autoCompleteResult = [];
 
           $scope.autoCompletePartial = '/dist/partials/_autoCompleteRow.html';
@@ -373,11 +387,12 @@
           }
 
           function getType(type) {
+            if (cultureData.currentCulture === undefined || cultureData.currentCulture == '' || cultureData.currentCulture == 'no') {
               switch (type) {
                 case "dataset":
                 return "Datasett";
                 case "servicelayer":
-                      return "Tjenestelag"; //WMS-lag (Tjenestelag)
+                return "Tjenestelag";
                 case "service":
                 return "Tjenester";
                 case "dimensionGroup":
@@ -386,6 +401,22 @@
                 return "Applikasjon";
                 default:
               }
+            } else if (cultureData.currentCulture == 'en') {
+              switch (type) {
+                case "dataset":
+                return "Dataset";
+                case "servicelayer":
+                return "Service layer";
+                case "service":
+                return "Service";
+                case "dimensionGroup":
+                return "Data package";
+                case "software":
+                return "Application";
+                default:
+              }
+            }
+          }
 
           function getUrl(type) {
             var baseUrl = searchOption.baseUrl;
