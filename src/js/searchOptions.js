@@ -84,3 +84,5 @@ var applicationEnvironment = applicationEnvironment || "";
 if (applicationEnvironment !== "") {
 	var searchOption = searchOptions[applicationEnvironment];
 }
+
+searchOption.supportsLogin = (searchOption.supportsLogin !== undefined) ? searchOption.supportsLogin : true;
