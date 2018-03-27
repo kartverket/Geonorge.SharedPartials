@@ -81,8 +81,19 @@
                 data: {}
             });
 
+            var menuService4 = encodeURI(searchOption.api + getSearchParameters('software', query));
+            var request4 = $http({
+              method: 'GET',
+              url: menuService4,
+              headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+                'accept': '*/*'
+              },
+              data: {}
+            });
 
-            return $q.all([request3, request, request2, request1]);
+
+            return $q.all([request3, request, request2, request1, request4]);
         }
 
     }]).controller('searchTopController', [
@@ -361,17 +372,19 @@
 
           function getType(type) {
               switch (type) {
-                  case "dataset":
-                      return "Datasett";
-                  case "servicelayer":
+                case "dataset":
+                return "Datasett";
+                case "servicelayer":
                       return "Tjenestelag"; //WMS-lag (Tjenestelag)
-                  case "service":
-                      return "Tjenester";
-                  case "dimensionGroup":
-                      return "Datapakker";
-                  default:
+                case "service":
+                return "Tjenester";
+                case "dimensionGroup":
+                return "Datapakker";
+                case "software":
+                return "Applikasjon";
+                default:
               }
-              
+
           }
 
           var categoryCount = null;
