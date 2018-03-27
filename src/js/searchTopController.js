@@ -359,7 +359,7 @@
                       var item = {};
                       var curr = list[x];
                       if (curr.data == null || curr.data.Results.length === 0) continue;
-                      var showAllUrl = getUrl(curr.data.Results[0].Type); 
+                      var showAllUrl = getUrlParameters(curr.data.Results[0].Type); 
                       var searchQuery = showAllUrl.length && showAllUrl.indexOf("?") > -1 ? '&text=' + $rootScope.searchQuery : '?text=' + $rootScope.searchQuery;
 
                       item.showAllUrl = showAllUrl + searchQuery; 
@@ -369,7 +369,6 @@
                           var currResult = curr.data.Results[y];
 
                           item.title = getType(currResult.Type);
-                          item.url = getUrl(currResult.Type);
 
                           item.list.push({
                               externalId: curr.SectionName + '_' + curr.Section + '_' + y,
@@ -418,19 +417,19 @@
             }
           }
 
-          function getUrl(type) {
+          function getUrlParameters(type) {
             var baseUrl = searchOption.url;
             switch (type) {
               case "dataset":
-              return baseUrl + "/search?Facets%5B0%5D.name=type&Facets%5B0%5D.value=dataset";
+              return baseUrl + "?Facets%5B0%5D.name=type&Facets%5B0%5D.value=dataset";
               case "servicelayer":
-              return baseUrl + "/search?Facets%5B0%5D.name=type&Facets%5B0%5D.value=service&Facets%5B1%5D.name=type&Facets%5B1%5D.value=servicelayer";
+              return baseUrl + "?Facets%5B0%5D.name=type&Facets%5B0%5D.value=service&Facets%5B1%5D.name=type&Facets%5B1%5D.value=servicelayer";
               case "service":
-              return baseUrl + "/search?Facets%5B0%5D.name=type&Facets%5B0%5D.value=service&Facets%5B1%5D.name=type&Facets%5B1%5D.value=servicelayer";
+              return baseUrl + "?Facets%5B0%5D.name=type&Facets%5B0%5D.value=service&Facets%5B1%5D.name=type&Facets%5B1%5D.value=servicelayer";
               case "dimensionGroup":
-              return baseUrl + "/search";
+              return baseUrl;
               case "software":
-              return baseUrl + "/search?Facets%5B0%5D.name=type&Facets%5B0%5D.value=software";
+              return baseUrl + "?Facets%5B0%5D.name=type&Facets%5B0%5D.value=software";
               default:
             }
           }
