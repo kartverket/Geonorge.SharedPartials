@@ -112,9 +112,10 @@
           $scope.showFakeResults = false;
           $scope.searchString = "";
           $rootScope.selectedSearch = searchOption;
-          $rootScope.searchQuery = '';
+          $rootScope.searchQuery = parseLocation(window.location.search).text;
+          $rootScope.activePageUrl = "//" + window.location.host + window.location.pathname + window.location.search; 
           $scope.autoCompleteResult = [];
-          
+
           $scope.autoCompletePartial = '/dist/partials/_autoCompleteRow.html';
           $scope.focused = false;
           $scope.autocompleteActive = false;
@@ -343,17 +344,18 @@
                   for (var x = 0; x < list.length; x++) {
                       var item = {};
                       var curr = list[x];
-                      if (curr.data.Results.length === 0) continue;
-                      item.type = curr.Section;
+                      if (curr.data == null || curr.data.Results.length === 0) continue;
+                      var showAllUrl = getUrl(curr.data.Results[0].Type); 
+                      var searchQuery = showAllUrl.length && showAllUrl.indexOf("?") > -1 ? '&text=' + $rootScope.searchQuery : '?text=' + $rootScope.searchQuery;
 
-                      item.title = curr.SectionName;
-
+                      item.showAllUrl = showAllUrl + searchQuery; 
                       item.list = [];
+
                       for (var y = 0; y < curr.data.Results.length; y++) {
                           var currResult = curr.data.Results[y];
 
                           item.title = getType(currResult.Type);
-                          item.url = searchOption.url;
+                          item.url = getUrl(currResult.Type);
 
                           item.list.push({
                               externalId: curr.SectionName + '_' + curr.Section + '_' + y,
@@ -385,6 +387,21 @@
                 default:
               }
 
+          function getUrl(type) {
+            var baseUrl = searchOption.baseUrl;
+            switch (type) {
+              case "dataset":
+              return baseUrl + "/search?Facets%5B0%5D.name=type&Facets%5B0%5D.value=dataset";
+              case "servicelayer":
+              return baseUrl + "/search?Facets%5B0%5D.name=type&Facets%5B0%5D.value=service&Facets%5B1%5D.name=type&Facets%5B1%5D.value=servicelayer";
+              case "service":
+              return baseUrl + "/search?Facets%5B0%5D.name=type&Facets%5B0%5D.value=service&Facets%5B1%5D.name=type&Facets%5B1%5D.value=servicelayer";
+              case "dimensionGroup":
+              return baseUrl + "/search";
+              case "software":
+              return baseUrl + "/search?Facets%5B0%5D.name=type&Facets%5B0%5D.value=software";
+              default:
+            }
           }
 
           var categoryCount = null;
@@ -496,3 +513,19 @@
           });
       }]);
 }());
+
+var parseLocation = function (location) {
+  var pairs = location.substring(1).split("&");
+  var obj = {};
+  var pair;
+  var i;
+
+  for (i in pairs) {
+    if (pairs[i] === "") continue;
+
+    pair = pairs[i].split("=");
+    obj[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+  }
+
+  return obj;
+};
