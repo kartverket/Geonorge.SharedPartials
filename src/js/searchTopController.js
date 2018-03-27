@@ -419,7 +419,7 @@
           }
 
           function getUrl(type) {
-            var baseUrl = searchOption.epiBaseUrl;
+            var baseUrl = searchOption.url;
             switch (type) {
               case "dataset":
               return baseUrl + "/search?Facets%5B0%5D.name=type&Facets%5B0%5D.value=dataset";
