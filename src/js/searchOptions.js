@@ -86,3 +86,4 @@ if (applicationEnvironment !== "") {
 }
 
 searchOption.supportsLogin = (searchOption.supportsLogin !== undefined) ? searchOption.supportsLogin : true;
+searchOption.supportsCulture = (searchOption.supportsCulture !== undefined) ? searchOption.supportsCulture : true;
