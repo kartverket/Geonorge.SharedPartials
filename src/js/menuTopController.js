@@ -38,7 +38,6 @@
 
             $scope.loginUrl = '//kartkatalog.geonorge.no/login';
             if (searchOption.loginUrl !== undefined)
-                $scope.loginUrl = searchOption.loginUrl;            
-        }
-        ]);
+                $scope.loginUrl = searchOption.loginUrl;
+        }]);
 }());

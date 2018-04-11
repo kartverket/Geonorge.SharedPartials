@@ -4,7 +4,7 @@
     prod: "//kartkatalog.geonorge.no"
 };
 var geonorgeBaseUrl = { 
-    local: "localhost:61381",
+    local: "//localhost:61381",
     test: "www.test.geonorge.no",
     prod: "www.geonorge.no"
 };

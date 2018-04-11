@@ -5,7 +5,11 @@
         "$scope", "$http",
         function($scope, $http) {       
             // * Language *     
-            $scope.langCode = Cookies.get("_culture");
+            if (typeof(Cookies) !== 'undefined'){
+                $scope.langCode = Cookies.get("_culture");
+            } else {
+                $scope.langCode = "no";
+            }
             $scope.localizedText = {
                 search: {
                     en: "Search",
@@ -47,7 +51,8 @@
                 $scope.imageLogoPath = searchOption.imageLogoPath;
 
             // * Login *
-            $scope.loggedIn = Cookies.get("_loggedIn");
+            if (typeof(Cookies) !== 'undefined')
+                $scope.loggedIn = Cookies.get("_loggedIn");
             if (searchOption.loggedIn !== undefined)
                 $scope.loggedIn = searchOption.loggedIn;
         }
