@@ -6,7 +6,7 @@
         function($scope, $http) {       
             // * Language *     
             if (typeof(Cookies) !== 'undefined'){
-                $scope.langCode = Cookies.get("_culture");
+                $scope.langCode = Cookies.get("_culture");                
             } else {
                 $scope.langCode = "no";
             }

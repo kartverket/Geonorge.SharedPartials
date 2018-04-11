@@ -11,10 +11,12 @@
             function handleSuccess(respons) {
                 var menuItems = respons.data;
                 $scope.menuItems = menuItems;
+                console.debug("menuItems", menuItems);
             }
 
             function handleError() {
                 $scope.getMenuError = true;
+                console.debug("Error while getting menu items");
             }
 
             $scope.getMenuData = function getMenuData() {
