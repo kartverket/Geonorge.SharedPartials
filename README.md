@@ -4,7 +4,7 @@
 Contains frontend for header used on Geonorge.no, including menu and search.
 
 ## Prerequisites
-[npm](https://www.npmjs.com/get-npm)
+[npm](https://www.npmjs.com/get-npm), [gulp](https://gulpjs.com/)
 
 ## Install
 ```bash
@@ -13,31 +13,21 @@ $ npm install geonorge-shared-partials
 
 Create the following gulpfile.js in the root of your project
 ```js
-var gulp = require("gulp"),
-bundleTask = require('./node_modules/geonorge-shared-partials/gulp-tasks/bundle')(gulp),
+var nodeUrl = "./node_modules/geonorge-shared-partials/",
+gulp = require("gulp"),
+bundleTask = require(nodeUrl + "gulp-tasks/bundle")(gulp),
 config = {
-  url: './node_modules/geonorge-shared-partials/bundle.config.js',
-  distFolder: 'dist'
+  url: nodeUrl + "bundle.config.js",
+  distFolder: "./dist"
 };
 
 gulp.task("default", function(){bundleTask(config)});
-gulp.task("test", function(){bundleTask(config,"test")});
-gulp.task("prod", function(){bundleTask(config,"prod")});
 ```
 
 ## Basic Usage
 Build js and css
 ```bash
-// Dev environment
 $ gulp
-```
-```bash
-// Test environment
-$ gulp test
-```
-```bash
-// Prod environment
-$ gulp prod
 ```
 
 Use the html files in your root layout
@@ -46,9 +36,10 @@ Use the html files in your root layout
 @Html.Raw(File.ReadAllText(Server.MapPath("~/dist/partials/Header.html")))
 ```
 
-and include this js somewhere on your site to update the "shopping cart" icon
+and include this js somewhere on your site
 ```js
-var orderItems = $.cookie('orderitems');
+var applicationEnvironment = "local"; // "prod", "test", "dev" or "local" 
+var orderItems = $.cookie('orderitems'); // Update "shopping cart" icon
 if (orderItems && orderItems > 0) {
     $('.downloads__count').show();
     $('.downloads__count').text(orderItems);

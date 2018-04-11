@@ -18,9 +18,9 @@
             }
 
             $scope.getMenuData = function getMenuData() {
-				var domainUrl = "";
-				if (searchOption.epiBaseUrl !== undefined)
-					domainUrl = searchOption.epiBaseUrl;
+                var domainUrl = "";
+                if (searchOption.epiBaseUrl !== undefined)
+                    domainUrl = searchOption.epiBaseUrl;
                 var menuService = domainUrl + "/api/menu" + "?omitLinks=1";
                 var request = $http({
                     method: "GET",
@@ -30,7 +30,7 @@
                         'accept': "*/*"
                     },
                     data: {},
-					crossDomain: true
+                    crossDomain: true
                 });
 
                 return request.then(handleSuccess, handleError);
@@ -38,7 +38,6 @@
 
             $scope.loginUrl = '//kartkatalog.geonorge.no/login';
             if (searchOption.loginUrl !== undefined)
-                $scope.loginUrl = searchOption.loginUrl;            
-        }
-    ]);
+                $scope.loginUrl = searchOption.loginUrl;
+        }]);
 }());

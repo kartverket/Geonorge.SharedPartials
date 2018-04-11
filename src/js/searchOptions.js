@@ -4,12 +4,29 @@
     prod: "//kartkatalog.geonorge.no"
 };
 var geonorgeBaseUrl = { 
-    local: "localhost:61381",
+    local: "//localhost:61381",
     test: "www.test.geonorge.no",
     prod: "www.geonorge.no"
 };
 var searchOptions = {
     local: {
+        text: "Kartkatalogen",
+        searchTitle: "Kartkatalogen",
+        buttonCss: "edgesKartkatalogen",
+        listCss: "left-edge-kartkatalogen",    
+        queryParameter: "?text=",
+        localUrl: false,
+        autoComplete: true,
+        url: kartKatalogenUrl.local + "/search",
+        api: kartKatalogenUrl.local + "/api/search",
+        shoppingCartUrl: kartKatalogenUrl.local + "/nedlasting",
+        loginUrl: kartKatalogenUrl.local + "/AuthServices/SignIn?ReturnUrl=http%3A%2F%2F"+geonorgeBaseUrl.local+"%2F",
+        logoutUrl: kartKatalogenUrl.local + "/AuthServices/SignOut?ReturnUrl=http%3A%2F%2F"+geonorgeBaseUrl.local+"%2F",
+        hosts: "localhost,geonorge.epidemo.no,geonorge.local,kartkatalog.dev.geonorge.no",
+        epiBaseUrl: geonorgeBaseUrl.local,
+        imageLogoPath: "/dist/images/geonorge_logo_350px_dev.svg"
+    },
+    dev: {
         text: "Kartkatalogen",
         searchTitle: "Kartkatalogen",
         buttonCss: "edgesKartkatalogen",
@@ -67,3 +84,6 @@ var applicationEnvironment = applicationEnvironment || "";
 if (applicationEnvironment !== "") {
 	var searchOption = searchOptions[applicationEnvironment];
 }
+
+searchOption.supportsLogin = (searchOption.supportsLogin !== undefined) ? searchOption.supportsLogin : true;
+searchOption.supportsCulture = (searchOption.supportsCulture !== undefined) ? searchOption.supportsCulture : true;

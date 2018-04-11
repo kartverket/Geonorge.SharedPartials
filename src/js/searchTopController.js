@@ -81,8 +81,19 @@
                 data: {}
             });
 
+            var menuService4 = encodeURI(searchOption.api + getSearchParameters('software', query));
+            var request4 = $http({
+              method: 'GET',
+              url: menuService4,
+              headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+                'accept': '*/*'
+              },
+              data: {}
+            });
 
-            return $q.all([request3, request, request2, request1]);
+
+            return $q.all([request3, request, request2, request1, request4]);
         }
 
     }]).controller('searchTopController', [
@@ -101,10 +112,25 @@
           $scope.showFakeResults = false;
           $scope.searchString = "";
           $rootScope.selectedSearch = searchOption;
-          $rootScope.searchQuery = '';
+          $rootScope.searchQuery = parseLocation(window.location.search).text;
+          $rootScope.activePageUrl = "//" + window.location.host + window.location.pathname + window.location.search; 
+
+          // Values based on selected language
+          if (cultureData.currentCulture === undefined || cultureData.currentCulture === '' || cultureData.currentCulture == 'no') {
+            $rootScope.showAllText = "Vis alle treff...";
+            $rootScope.noResultsText = "Søket gir ingen treff";
+            $rootScope.loadingContentText = "Henter innhold";
+            $rootScope.loadingSearchResultsText = "Henter søkeresultater";
+          } else if (cultureData.currentCulture == 'en') {
+            $rootScope.showAllText = "Show all results...";
+            $rootScope.noResultsText = "Your search did not return any data";
+            $rootScope.loadingContentText = "Loading content";
+            $rootScope.loadingSearchResultsText = "Loading search results";
+          }
+
           $scope.autoCompleteResult = [];
-          
-          $scope.autoCompletePartial = searchOption.epiBaseUrl + '/KartverketSharedMenu/Scripts/geonorge/partials/_autoCompleteRow.html';
+
+          $scope.autoCompletePartial = '/dist/partials/_autoCompleteRow.html';
           $scope.focused = false;
           $scope.autocompleteActive = false;
           $scope.ajaxCallActive = false;
@@ -332,17 +358,17 @@
                   for (var x = 0; x < list.length; x++) {
                       var item = {};
                       var curr = list[x];
-                      if (curr.data.Results.length === 0) continue;
-                      item.type = curr.Section;
+                      if (curr.data == null || curr.data.Results.length === 0) continue;
+                      var showAllUrl = getUrlParameters(curr.data.Results[0].Type); 
+                      var searchQuery = showAllUrl.length && showAllUrl.indexOf("?") > -1 ? '&text=' + $rootScope.searchQuery : '?text=' + $rootScope.searchQuery;
 
-                      item.title = curr.SectionName;
-
+                      item.showAllUrl = showAllUrl + searchQuery; 
                       item.list = [];
+
                       for (var y = 0; y < curr.data.Results.length; y++) {
                           var currResult = curr.data.Results[y];
 
                           item.title = getType(currResult.Type);
-                          item.url = searchOption.url;
 
                           item.list.push({
                               externalId: curr.SectionName + '_' + curr.Section + '_' + y,
@@ -360,18 +386,52 @@
           }
 
           function getType(type) {
+            if (cultureData.currentCulture === undefined || cultureData.currentCulture == '' || cultureData.currentCulture == 'no') {
               switch (type) {
-                  case "dataset":
-                      return "Datasett";
-                  case "servicelayer":
-                      return "Tjenestelag"; //WMS-lag (Tjenestelag)
-                  case "service":
-                      return "Tjenester";
-                  case "dimensionGroup":
-                      return "Datapakker";
-                  default:
+                case "dataset":
+                return "Datasett";
+                case "servicelayer":
+                return "Tjenestelag";
+                case "service":
+                return "Tjenester";
+                case "dimensionGroup":
+                return "Datapakker";
+                case "software":
+                return "Applikasjon";
+                default:
               }
-              
+            } else if (cultureData.currentCulture == 'en') {
+              switch (type) {
+                case "dataset":
+                return "Dataset";
+                case "servicelayer":
+                return "Service layer";
+                case "service":
+                return "Service";
+                case "dimensionGroup":
+                return "Data package";
+                case "software":
+                return "Application";
+                default:
+              }
+            }
+          }
+
+          function getUrlParameters(type) {
+            var baseUrl = searchOption.url;
+            switch (type) {
+              case "dataset":
+              return baseUrl + "?Facets%5B0%5D.name=type&Facets%5B0%5D.value=dataset";
+              case "servicelayer":
+              return baseUrl + "?Facets%5B0%5D.name=type&Facets%5B0%5D.value=service&Facets%5B1%5D.name=type&Facets%5B1%5D.value=servicelayer";
+              case "service":
+              return baseUrl + "?Facets%5B0%5D.name=type&Facets%5B0%5D.value=service&Facets%5B1%5D.name=type&Facets%5B1%5D.value=servicelayer";
+              case "dimensionGroup":
+              return baseUrl;
+              case "software":
+              return baseUrl + "?Facets%5B0%5D.name=type&Facets%5B0%5D.value=software";
+              default:
+            }
           }
 
           var categoryCount = null;
@@ -483,3 +543,19 @@
           });
       }]);
 }());
+
+var parseLocation = function (location) {
+  var pairs = location.substring(1).split("&");
+  var obj = {};
+  var pair;
+  var i;
+
+  for (i in pairs) {
+    if (pairs[i] === "") continue;
+
+    pair = pairs[i].split("=");
+    obj[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+  }
+
+  return obj;
+};
