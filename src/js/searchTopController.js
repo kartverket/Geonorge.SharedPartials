@@ -220,7 +220,7 @@
 
             $scope.onSearch = function (ev) {
                 if (ev) ev.preventDefault();
-                if ($rootScope.searchQuery.length < 3) return;
+                if (!$rootScope.searchQuery || $rootScope.searchQuery.length < 3) return;
 
                 //The service tries to trigger the connected search method - if not, the fallback method is used
                 var src = aggregatedService.triggerSearch($rootScope.searchQuery);

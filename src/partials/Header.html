@@ -14,7 +14,7 @@
                 <label for="txtSearch" class="sr-only" ng-cloak>{{(selectedSearch.searchPlaceholder !== undefined ? selectedSearch.searchPlaceholder : localizedText.search[langCode])}}</label>
                 <div class="search-input" data-ng-controller="searchTopController" ng-cloak>
                     <input autocomplete="off" id="txtSearch" type="search" class="search-text" ng-attr-placeholder="{{(selectedSearch.searchPlaceholder !== undefined ? selectedSearch.searchPlaceholder : localizedText.search[langCode])}}" data-ng-focus="setFocus($event)" data-ng-blur="" data-ng-keyup="autocomplete($event)" data-ng-keydown="preventDefault($event)" data-ng-model="$root.searchQuery"/>
-                    <button class="search-button" type="button">
+                    <button class="search-button" type="button" ng-click="onSearch()">
                         <img src="/dist/images/search_icon-01.svg" alt="search"/>
                     </button>
                     <div class="search-results" data-ng-show="autocompleteActive" data-ng-animate data-ng-cloak data-ng-include="autoCompletePartial"></div>
