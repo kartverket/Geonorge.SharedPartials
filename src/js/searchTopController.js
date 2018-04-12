@@ -315,17 +315,17 @@
                       if (timer) {
                           $timeout.cancel(timer);
                           timer = null;
-                          console.log('cancel timeout');
+                          console.debug('cancel timeout');
                       }
 
                       timer = $timeout(function() {
                           $scope.autocompleteActive = true;
-                          console.log('calling WS');
+                          console.debug('calling WS');
                           if ($rootScope.searchQuery.length > 0) {
                               $scope.ajaxCallActive = true;
 
                                aggregatedService.performSearch($rootScope.searchQuery, [], 5, 0).then(function (arrayOfResults) {
-                                   console.log(arrayOfResults);
+                                   console.debug(arrayOfResults);
 
                                    var response = {
                                        d: {
@@ -379,7 +379,7 @@
                           });
                       }
                       $scope.autoCompleteResult.push(item);
-                      console.log(item);
+                      console.debug(item);
                   }
 
               }
@@ -502,13 +502,13 @@
                       }
                   }
               }
-              console.log('categoryCount ' + categoryCount);
-              console.log('resultCount ' + resultCount);
+              console.debug('categoryCount ' + categoryCount);
+              console.debug('resultCount ' + resultCount);
           }
 
           $scope.mouseOver = function (val, category, index) {
-              console.log(category);
-              console.log(index);
+              console.debug(category);
+              console.debug(index);
               $scope.allowBlur = val;
               resultCount = index + 1;
               categoryCount = category + 1;
@@ -527,12 +527,11 @@
 
           $scope.setFocus = function (ev) {
               $scope.focused = true;
-              console.log($scope.focused);
               angular.element(ev.target).on('blur', function () {
                   $timeout(function () {
                       if ($scope.allowBlur) {
                           $scope.resetAutocomplete();
-                          console.log($scope.focused);
+                          console.debug($scope.focused);
                           angular.element(ev.target).on('blur', null);
                       }
                   }, true);
