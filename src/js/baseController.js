@@ -45,21 +45,26 @@
                 document.cookie = "_culture=" + cultureCode + "; path=/;domain=.geonorge.no";
             }
 
-            // * Shopping cart url *
-            $scope.shoppingCartUrl = "//kartkatalog.geonorge.no/nedlasting";
-            if (searchOption.shoppingCartUrl !== undefined)
-                $scope.shoppingCartUrl = searchOption.shoppingCartUrl;
-            
-            // * Logo *
-            $scope.imageLogoPath = "";
-            if (searchOption.imageLogoPath !== undefined)
-                $scope.imageLogoPath = searchOption.imageLogoPath;
-
-            // * Login *
+            // * Is logged in *
             if (typeof(Cookies) !== 'undefined')
                 $scope.loggedIn = Cookies.get("_loggedIn");
             if (searchOption.loggedIn !== undefined)
                 $scope.loggedIn = searchOption.loggedIn;
+
+            // * Logo *
+            $scope.imageLogoPath = "/dist/images/geonorge_logo_350px.svg";
+            if (searchOption.imageLogoPath !== undefined)
+                $scope.imageLogoPath = searchOption.imageLogoPath;
+
+            // * Logo url *
+            $scope.epiBaseUrl = "//www.geonorge.no";
+            if (searchOption.epiBaseUrl !== undefined)
+                $scope.epiBaseUrl = searchOption.epiBaseUrl;
+
+            // * Shopping cart url *
+            $scope.shoppingCartUrl = "//kartkatalog.geonorge.no/nedlasting";
+            if (searchOption.shoppingCartUrl !== undefined)
+                $scope.shoppingCartUrl = searchOption.shoppingCartUrl;
         }
     ]);
 }());
