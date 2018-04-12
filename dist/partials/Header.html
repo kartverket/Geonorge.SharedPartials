@@ -5,7 +5,7 @@
     <div class="container">
         <div class="page-top" data-ng-app="geonorge-header" ng-controller="baseController">
             <div class="logo">
-                <a href="https://www.geonorge.no/">
+                <a href="/">
                     <img ng-src="{{imageLogoPath}}" src="/dist/images/geonorge_logo_350px.svg" alt="geonorge logo" />
                 </a>
             </div>
@@ -22,7 +22,7 @@
             </div>
 
             <div class="downloads">
-                <a href="" onclick="window.location.href = searchOption.shoppingCartUrl">
+                <a ng-href="{{shoppingCartUrl}}">
                     <span class="downloads__count"></span>
                     <svg width="48px" height="32px" viewBox="0 0 48 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -56,8 +56,8 @@
                                 </li>
                             </ul>
                             <div class="menu-content__utilities">
-                                <a ng-if="selectedSearch.supportsLogin && loggedIn" href="" onclick="window.location.href = searchOption.logoutUrl">{{localizedText.logout[langCode]}}</a>
-                                <a ng-if="selectedSearch.supportsLogin && !loggedIn" href="" onclick="window.location.href = searchOption.loginUrl">{{localizedText.login[langCode]}}</a>
+                                <a ng-if="selectedSearch.supportsLogin && loggedIn" ng-href="{{logoutUrl}}">{{localizedText.logout[langCode]}}</a>
+                                <a ng-if="selectedSearch.supportsLogin && !loggedIn" ng-href="{{loginUrl}}">{{localizedText.login[langCode]}}</a>
                                 <a ng-if="selectedSearch.supportsCulture" class="internal" ng-href="{{cultureSwitchUrl}}" ng-click="switchCulture(cultureSwitchCode)">{{cultureSwitchName}}</a>
                             </div>
                         </nav>

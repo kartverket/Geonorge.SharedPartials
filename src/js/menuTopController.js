@@ -8,15 +8,15 @@
                 return $sce.trustAsResourceUrl(src);
             }
 
-            function handleSuccess(respons) {
-                var menuItems = respons.data;
+            function handleSuccess(response) {
+                var menuItems = response.data;
                 $scope.menuItems = menuItems;
                 console.debug("menuItems", menuItems);
             }
 
-            function handleError() {
+            function handleError(response) {
                 $scope.getMenuError = true;
-                console.debug("Error while getting menu items");
+                console.debug("Error while getting menuItems", response);
             }
 
             $scope.getMenuData = function getMenuData() {
@@ -38,8 +38,14 @@
                 return request.then(handleSuccess, handleError);
             };
 
-            $scope.loginUrl = '//kartkatalog.geonorge.no/login';
+            // * Login url *
+            $scope.loginUrl = '//kartkatalog.geonorge.no/AuthServices/SignIn?ReturnUrl=http%3A%2F%2Fwww.geonorge.no%2F';
             if (searchOption.loginUrl !== undefined)
                 $scope.loginUrl = searchOption.loginUrl;
+
+            // * Log out url *
+            $scope.logoutUrl = '//kartkatalog.geonorge.no/AuthServices/SignOut?ReturnUrl=http%3A%2F%2Fwww.geonorge.no%2F';
+            if (searchOption.logoutUrl !== undefined)
+                $scope.logoutUrl = searchOption.logoutUrl;
         }]);
 }());
