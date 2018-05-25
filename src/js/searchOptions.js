@@ -1,7 +1,7 @@
 ﻿var kartKatalogenUrl = {
     local: "//kartkatalog.dev.geonorge.no",
-    test: "//kartkatalog.test.geonorge.no",
-    prod: "//kartkatalog.geonorge.no"
+    test: "https://kartkatalog.test.geonorge.no",
+    prod: "https://kartkatalog.geonorge.no"
 };
 var geonorgeBaseUrl = { 
     local: "//localhost:61381",
@@ -20,7 +20,7 @@ var searchOptions = {
         url: kartKatalogenUrl.local + "/search",
         api: kartKatalogenUrl.local + "/api/search",
         shoppingCartUrl: kartKatalogenUrl.local + "/nedlasting",
-        loginUrl: kartKatalogenUrl.local + "/AuthServices/SignIn?ReturnUrl=http%3A%2F%2F"+geonorgeBaseUrl.local+"%2F",
+        loginUrl: kartKatalogenUrl.local + "/AuthServices/SignIn?ReturnUrl=https%3A%2F%2Fnedlasting.test.geonorge.no%2FAuthServices%2FSignIn%3FReturnUrl%3Dhttps%3A%2F%2F"+geonorgeBaseUrl.local+"%2F",
         logoutUrl: kartKatalogenUrl.local + "/AuthServices/SignOut?ReturnUrl=http%3A%2F%2F"+geonorgeBaseUrl.local+"%2F",
         hosts: "localhost,geonorge.epidemo.no,geonorge.local,kartkatalog.dev.geonorge.no",
         epiBaseUrl: geonorgeBaseUrl.local,
@@ -37,7 +37,7 @@ var searchOptions = {
         url: kartKatalogenUrl.local + "/search",
         api: kartKatalogenUrl.local + "/api/search",
         shoppingCartUrl: kartKatalogenUrl.local + "/nedlasting",
-        loginUrl: kartKatalogenUrl.local + "/AuthServices/SignIn?ReturnUrl=http%3A%2F%2F"+geonorgeBaseUrl.local+"%2F",
+        loginUrl: kartKatalogenUrl.local + "/AuthServices/SignIn?ReturnUrl=https%3A%2F%2Fnedlasting.test.geonorge.no%2FAuthServices%2FSignIn%3FReturnUrl%3Dhttps%3A%2F%2F"+geonorgeBaseUrl.local+"%2F",
         logoutUrl: kartKatalogenUrl.local + "/AuthServices/SignOut?ReturnUrl=http%3A%2F%2F"+geonorgeBaseUrl.local+"%2F",
         hosts: "localhost,geonorge.epidemo.no,geonorge.local,kartkatalog.dev.geonorge.no",
         epiBaseUrl: geonorgeBaseUrl.local,
@@ -54,7 +54,7 @@ var searchOptions = {
         url: kartKatalogenUrl.test + "/search",
         api: kartKatalogenUrl.test + "/api/search",
         shoppingCartUrl: kartKatalogenUrl.test + "/nedlasting",
-        loginUrl: kartKatalogenUrl.test + "/AuthServices/SignIn?ReturnUrl=http%3A%2F%2F"+geonorgeBaseUrl.test+"%2F",
+        loginUrl: kartKatalogenUrl.test + "/AuthServices/SignIn?ReturnUrl=https%3A%2F%2Fnedlasting.test.geonorge.no%2FAuthServices%2FSignIn%3FReturnUrl%3Dhttps%3A%2F%2F"+geonorgeBaseUrl.test+"%2F",
         logoutUrl: kartKatalogenUrl.test + "/AuthServices/SignOut?ReturnUrl=http%3A%2F%2F"+geonorgeBaseUrl.test+"%2F",
         hosts: "test.geonorge.no,kartkatalog.test.geonorge.no,register.test.geonorge.no,objektkatalog.test.geonorge.no,editor.test.geonorge.no,produktark.test.geonorge.no,validering.test.geonorge.no,159.162.102.155,kartkatalog.dev.geonorge.no,register.dev.geonorge.no,objektkatalog.dev.geonorge.no,editor.dev.geonorge.no,produktark.dev.geonorge.no,validering.dev.geonorge.no,159.162.102.155,kartkatalog.dev.geonorge.no,register.dev.geonorge.no,objektkatalog.dev.geonorge.no,editor.dev.geonorge.no,produktark.dev.geonorge.no,validering.dev.geonorge.no,159.162.102.155",
         epiBaseUrl: "//" + geonorgeBaseUrl.test,
@@ -71,7 +71,7 @@ var searchOptions = {
         url: kartKatalogenUrl.prod + "/search",
         api: kartKatalogenUrl.prod + "/api/search",
         shoppingCartUrl: kartKatalogenUrl.prod + "/nedlasting",
-        loginUrl: kartKatalogenUrl.prod + "/AuthServices/SignIn?ReturnUrl=http%3A%2F%2F"+geonorgeBaseUrl.prod+"%2F",
+        loginUrl: kartKatalogenUrl.prod + "/AuthServices/SignIn?ReturnUrl=https%3A%2F%2Fnedlasting.geonorge.no%2FAuthServices%2FSignIn%3FReturnUrl%3Dhttps%3A%2F%2F"+geonorgeBaseUrl.prod+"%2F",
         logoutUrl: kartKatalogenUrl.prod + "/AuthServices/SignOut?ReturnUrl=http%3A%2F%2F"+geonorgeBaseUrl.prod+"%2F",
         hosts: "geonorge.no,kartkatalog.geonorge.no,register.geonorge.no,objektkatalog.geonorge.no,editor.geonorge.no,produktark.geonorge.no,validering.geonorge.no,159.162.102.155",
         epiBaseUrl: "//" + geonorgeBaseUrl.prod,
