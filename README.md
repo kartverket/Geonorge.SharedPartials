@@ -30,10 +30,22 @@ Build js and css
 $ gulp
 ```
 
+Add stylesheets:
+```html
+<link rel="stylesheet" href="/dist/vendor.css" />
+<link rel="stylesheet" href="/dist/main.css" />
+```
+
 Use the html files in your root layout
 ```cs
 // C# example
 @Html.Raw(File.ReadAllText(Server.MapPath("~/dist/partials/Header.html")))
+```
+
+Include javascripts:
+```html
+<script type="text/javascript" src="/dist/vendor.js" ></script>
+<script type="text/javascript" src="/dist/main.js" ></script>
 ```
 
 and include this js somewhere on your site
