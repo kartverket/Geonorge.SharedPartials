@@ -76,6 +76,7 @@
   "license": "ISC",
   "main": "src/js/index.js",
   "files": [
+    "dist",
     "src"
   ],
   "maintainers": [
