@@ -58,11 +58,6 @@
     "bootstrap": "^3.3.5",
     "js-cookie": "^2.2.0"
   },
-  "bundledDependencies": [
-    "angular",
-    "angular-ui-bootstrap",
-    "js-cookie"
-  ],
   "description": "Header for *.geonorge.no sites",
   "devDependencies": {
     "gulp": "^3.9.1",
