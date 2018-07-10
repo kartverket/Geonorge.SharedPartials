@@ -74,8 +74,15 @@
   "gitHead": "e52b7cc8e6c968ee74fe10b6dea48b859bf3f478",
   "homepage": "https://github.com/kartverket/Geonorge.SharedPartials#readme",
   "license": "ISC",
-  "main": "src/partials/Header.html",
+  "main": "src/js/index.js",
+  "files": [
+    "src"
+  ],
   "maintainers": [
+    {
+      "name": "Henning Jensen",
+      "email": "henning.jensen@gmail.com"
+    },
     {
       "name": "dsreitan",
       "email": "dsreitan@gmail.com"
