@@ -42,7 +42,11 @@
             function getSearchParameters(facetValue, query) {
                 var facetParameters = 'facets[1]name=type&facets[1]value=' + facetValue;
                 var queryParameters = 'text=' + query;
-                return '?limit=5&' + facetParameters + '&' + queryParameters;
+                var language = "en";
+                if (cultureData.currentCulture === undefined || cultureData.currentCulture === '' || cultureData.currentCulture == 'no')
+                    language = "no";
+
+                return '?limit=5&' + facetParameters + '&' + queryParameters + '&lang=' + language;
             }
 
             var menuService = encodeURI(searchOption.api + getSearchParameters('dataset', query));
