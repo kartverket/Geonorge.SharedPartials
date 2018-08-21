@@ -78,7 +78,8 @@
   "files": [
     "dist",
     "src",
-    "gulp-tasks"
+    "gulp-tasks",
+    "bundle.config.js"
   ],
   "maintainers": [
     {
