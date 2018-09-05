@@ -11,7 +11,6 @@
             function handleSuccess(response) {
                 var menuItems = response.data;
                 $scope.menuItems = menuItems;
-                console.debug("menuItems", menuItems);
             }
 
             function handleError(response) {
