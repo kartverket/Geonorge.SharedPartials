@@ -104,8 +104,19 @@
                 data: {}
             });
 
+            var menuService5 = encodeURI(searchOption.api.replace('search','articles') + '?limit=5&text=' + query);
+            var request5 = $http({
+                method: 'GET',
+                url: menuService5,
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8',
+                    'accept': '*/*'
+                },
+                data: {}
+            });
 
-            return $q.all([request3, request, request2, request1, request4]);
+
+            return $q.all([request3, request, request2, request1, request4, request5]);
         }
 
     }]).controller('searchTopController', [
@@ -395,6 +406,10 @@
                             return "Datapakker";
                         case "software":
                             return "Applikasjon";
+                        case "StandardPage":
+                            return "Artikler";
+                        case "NewsPage":
+                            return "Artikler";
                         default:
                     }
                 } else if (cultureData.currentCulture == 'en') {
@@ -409,6 +424,10 @@
                             return "Data package";
                         case "software":
                             return "Application";
+                        case "StandardPage":
+                            return "Articles";
+                        case "NewsPage":
+                            return "Articles";
                         default:
                     }
                 }
@@ -424,6 +443,10 @@
                     case "service":
                         return baseUrl + "?Facets%5B0%5D.name=type&Facets%5B0%5D.value=service&Facets%5B1%5D.name=type&Facets%5B1%5D.value=servicelayer";
                     case "dimensionGroup":
+                        return baseUrl;
+                    case "StandardPage":
+                        return baseUrl;
+                    case "NewsPage":
                         return baseUrl;
                     case "software":
                         return baseUrl + "?Facets%5B0%5D.name=type&Facets%5B0%5D.value=software";
