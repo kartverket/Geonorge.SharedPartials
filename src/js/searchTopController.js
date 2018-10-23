@@ -46,10 +46,10 @@
                 if (cultureData.currentCulture === undefined || cultureData.currentCulture === '' || cultureData.currentCulture == 'no')
                     language = "no";
 
-                return '?limit=5&' + facetParameters + '&' + queryParameters + '&lang=' + language;
+                return '?limit=10&' + queryParameters + '&lang=' + language;
             }
 
-            var menuService = encodeURI(searchOption.api + getSearchParameters('dataset', query));
+            var menuService = encodeURI(searchOption.api + getSearchParameters('', query));
             var request = $http({
                 method: 'GET',
                 url: menuService,
@@ -60,54 +60,11 @@
                 data: {}
             });
 
-            var menuService1 = encodeURI(searchOption.api + getSearchParameters('servicelayer', query));
-            var request1 = $http({
-                method: 'GET',
-                url: menuService1,
-                headers: {
-                    'Content-Type': 'application/json; charset=utf-8',
-                    'accept': '*/*'
-                },
-                data: {}
-            });
 
-            var menuService2 = encodeURI(searchOption.api + getSearchParameters('service', query));
-            var request2 = $http({
+            var menuServiceArticles = encodeURI(searchOption.api.replace('search','articles') + '?limit=5&text=' + query);
+            var requestArticles = $http({
                 method: 'GET',
-                url: menuService2,
-                headers: {
-                    'Content-Type': 'application/json; charset=utf-8',
-                    'accept': '*/*'
-                },
-                data: {}
-            });
-
-            var menuService3 = encodeURI(searchOption.api + getSearchParameters('dimensionGroup', query));
-            var request3 = $http({
-                method: 'GET',
-                url: menuService3,
-                headers: {
-                    'Content-Type': 'application/json; charset=utf-8',
-                    'accept': '*/*'
-                },
-                data: {}
-            });
-
-            var menuService4 = encodeURI(searchOption.api + getSearchParameters('software', query));
-            var request4 = $http({
-                method: 'GET',
-                url: menuService4,
-                headers: {
-                    'Content-Type': 'application/json; charset=utf-8',
-                    'accept': '*/*'
-                },
-                data: {}
-            });
-
-            var menuService5 = encodeURI(searchOption.api.replace('search','articles') + '?limit=5&text=' + query);
-            var request5 = $http({
-                method: 'GET',
-                url: menuService5,
+                url: menuServiceArticles,
                 headers: {
                     'Content-Type': 'application/json; charset=utf-8',
                     'accept': '*/*'
@@ -116,7 +73,7 @@
             });
 
 
-            return $q.all([request3, request, request2, request1, request4, request5]);
+            return $q.all([request, requestArticles]);
         }
 
     }]).controller('searchTopController', [
@@ -396,39 +353,19 @@
             function getType(type) {
                 if (cultureData.currentCulture === undefined || cultureData.currentCulture == '' || cultureData.currentCulture == 'no') {
                     switch (type) {
-                        case "dataset":
-                            return "Datasett";
-                        case "servicelayer":
-                            return "Tjenestelag";
-                        case "service":
-                            return "Tjenester";
-                        case "dimensionGroup":
-                            return "Datapakker";
-                        case "software":
-                            return "Applikasjon";
                         case "StandardPage":
                             return "Artikler";
                         case "NewsPage":
                             return "Artikler";
-                        default:
+                        default: return "Kartkatalogen";
                     }
                 } else if (cultureData.currentCulture == 'en') {
                     switch (type) {
-                        case "dataset":
-                            return "Dataset";
-                        case "servicelayer":
-                            return "Service layer";
-                        case "service":
-                            return "Service";
-                        case "dimensionGroup":
-                            return "Data package";
-                        case "software":
-                            return "Application";
                         case "StandardPage":
                             return "Articles";
                         case "NewsPage":
                             return "Articles";
-                        default:
+                        default: return "Map Catalogue";
                     }
                 }
             }
@@ -436,21 +373,11 @@
             function getUrlParameters(type) {
                 var baseUrl = searchOption.url;
                 switch (type) {
-                    case "dataset":
-                        return baseUrl + "?Facets%5B0%5D.name=type&Facets%5B0%5D.value=dataset";
-                    case "servicelayer":
-                        return baseUrl + "?Facets%5B0%5D.name=type&Facets%5B0%5D.value=service&Facets%5B1%5D.name=type&Facets%5B1%5D.value=servicelayer";
-                    case "service":
-                        return baseUrl + "?Facets%5B0%5D.name=type&Facets%5B0%5D.value=service&Facets%5B1%5D.name=type&Facets%5B1%5D.value=servicelayer";
-                    case "dimensionGroup":
-                        return baseUrl;
                     case "StandardPage":
                         return baseUrl;
                     case "NewsPage":
                         return baseUrl;
-                    case "software":
-                        return baseUrl + "?Facets%5B0%5D.name=type&Facets%5B0%5D.value=software";
-                    default:
+                    default: return baseUrl;
                 }
             }
 
