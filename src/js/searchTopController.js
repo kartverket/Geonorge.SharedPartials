@@ -423,9 +423,9 @@
                     case "dimensionGroup":
                         return baseUrl;
                     case "StandardPage":
-                        return baseUrl;
+                        return baseUrl + "?facet=articles";
                     case "NewsPage":
-                        return baseUrl;
+                        return baseUrl + "?facet=articles";
                     case "software":
                         return baseUrl + "?Facets%5B0%5D.name=type&Facets%5B0%5D.value=software";
                     default:
