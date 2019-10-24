@@ -1,0 +1,34 @@
+[
+    {
+      "outputFileName": "dist/vendor.min.js",
+      "inputFiles": [
+        "node_modules/js-cookie/src/js.cookie.js",
+        "node_modules/jquery/dist/jquery.min.js",
+        "node_modules/angular/angular.js",
+        "node_modules/bootstrap/dist/js/bootstrap.min.js",
+        "node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"
+      ]
+    },
+    {
+        "outputFileName": "dist/styles.min.css",
+        "inputFiles": [
+          "node_modules/bootstrap/dist/css/bootstrap.css",
+          "src/css/**/*.css"
+        ]
+      },
+    {
+      "outputFileName": "dist/main.min.js",
+      "inputFiles": [
+        "src/js/searchOptions.js",
+        "src/js/app.js",
+        "src/js/baseController.js",
+        "src/js/menuTopController.js",
+        "src/js/searchTopController.js"
+      ],
+      "minify": {
+        "enabled": true,
+        "renameLocals": true
+      },
+      "sourceMap": false
+    }
+  ]

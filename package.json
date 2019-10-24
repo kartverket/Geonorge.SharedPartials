@@ -41,8 +41,6 @@
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/geonorge-shared-partials/-/geonorge-shared-partials-0.0.6.tgz",
-  "_shasum": "f134fe1a644a2cc4c28e44e364174ad9aa914adc",
   "_shrinkwrap": null,
   "_spec": "geonorge-shared-partials@*",
   "_where": "C:\\Repo\\geonorge\\src\\node_modules",
@@ -53,17 +51,26 @@
     "url": "https://github.com/kartverket/Geonorge.SharedPartials/issues"
   },
   "dependencies": {
-    "angular": "^1.6.9",
+    "angular": "^1.7.8",
     "angular-ui-bootstrap": "^2.5.6",
-    "bootstrap": "^3.3.5",
-    "gulp-bundle-assets": "^2.29.0",
-    "jquery": "^3.3.1",
-    "js-cookie": "^2.2.0"
+    "bootstrap": "^3.4.1",
+    "jquery": "^3.4.1",
+    "js-cookie": "^2.2.1"
   },
   "description": "Header for *.geonorge.no sites",
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-if": "^2.0.2"
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "autoprefixer": "^9.6.5",
+    "cssnano": "^4.1.10",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-uglify": "^3.0.2",
+    "merge-stream": "^2.0.0"
   },
   "directories": {},
   "dist": {
