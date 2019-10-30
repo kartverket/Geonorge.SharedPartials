@@ -1,6 +1,6 @@
 [
     {
-      "outputFileName": "dist/vendor.min.js",
+      "outputFileName": "dist/vendor.js",
       "inputFiles": [
         "node_modules/js-cookie/src/js.cookie.js",
         "node_modules/jquery/dist/jquery.min.js",
@@ -10,14 +10,14 @@
       ]
     },
     {
-        "outputFileName": "dist/styles.min.css",
+        "outputFileName": "dist/vendor.css",
         "inputFiles": [
           "node_modules/bootstrap/dist/css/bootstrap.css",
           "src/css/**/*.css"
         ]
       },
     {
-      "outputFileName": "dist/main.min.js",
+      "outputFileName": "dist/main.js",
       "inputFiles": [
         "src/js/searchOptions.js",
         "src/js/app.js",
