@@ -1,9 +1,9 @@
-const bundle = require('gulp-bundle-assets');
+import assetBundler from "@userfrosting/gulp-bundle-assets";
 
 module.exports = function (gulp) {
 	return function (config, env) {
 		return gulp.src(config.url)
-			.pipe(bundle())
+			.pipe(assetBundler(config))
 			.pipe(gulp.dest(config.distFolder));
 	}
 };
