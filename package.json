@@ -14,7 +14,6 @@
     ]
   ],
   "_from": "geonorge-shared-partials@*",
-  "_id": "geonorge-shared-partials@0.0.6",
   "_inCache": true,
   "_location": "/geonorge-shared-partials",
   "_nodeVersion": "6.11.4",
@@ -110,5 +109,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "0.0.72"
+  "version": "1.0.0"
 }
