@@ -1,4 +1,4 @@
-# Geonorge.SharedPartials
+# ⛔️ DEPRECATED Geonorge.SharedPartials
 [![NPM version][npm-image]][npm-url]
 
 Contains frontend for header used on Geonorge.no, including menu and search.
